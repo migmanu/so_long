@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/10 16:05:38 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/10 19:02:49 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define ERROR -1
 # define FAILURE 1
 # define SUCCESS 0
+
+# define WRGMAP "Inputed map is not valid\n"
+# define NOTRECT "Inputed map is not a rectangle\n"
+# define NOEXIT "Inputed map has no valid exit or valid path to exit\n"
+# define COLLERR "Inputed map has no valid path to collectables\n"
 
 typedef enum e_bool
 {
