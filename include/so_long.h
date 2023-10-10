@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/10 19:02:49 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/10 19:57:30 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@
 # define FAILURE 1
 # define SUCCESS 0
 
-# define WRGMAP "Inputed map is not valid\n"
-# define NOTRECT "Inputed map is not a rectangle\n"
-# define NOEXIT "Inputed map has no valid exit or valid path to exit\n"
-# define COLLERR "Inputed map has no valid path to collectables\n"
+# define WRGMAP "Map is not valid\n"
+# define MAPNOPEN "Map could not be opened\n"
+# define NOTRECT "Map is not a rectangle\n"
+# define NOEXIT "Map has no valid exit or valid path to exit\n"
+# define COLLERR "Map has no valid path to collectables\n"
 
 typedef enum e_bool
 {
 	false = 0,
 	true = 1
 }	t_bool;
+
+typedef struct s_map
+{
+	int		fd;
+	int		line_cont;
+	size_t	line_length;
+	char	**map;
+}	t_map;
 
 # ifndef FALSE
 #  define FALSE false
@@ -46,5 +55,8 @@ typedef enum e_bool
 # ifndef TRUE
 #  define TRUE true
 # endif
+
+// build_map
+t_bool	build_map(char *file);
 
 #endif
