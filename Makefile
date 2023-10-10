@@ -6,13 +6,14 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/10 18:54:55 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/10 19:19:29 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS_DIR = ./src/
-SRCS = main.c
+SRCS = main.c \
+	   00_build_map/build_map.c \
 
 OBJ_FILES = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 
