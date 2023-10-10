@@ -6,14 +6,15 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/08 11:38:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/10 19:36:38 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("Hola mundo!\n");
+	printf("argc %d", argc);
+	build_map(argv[1]);
 	return (0);
 }
