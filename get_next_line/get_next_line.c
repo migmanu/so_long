@@ -6,10 +6,11 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 17:33:19 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/10/10 15:31:02 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/10 16:00:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/so_long.h"
 #include "../include/get_next_line.h"
 
 void	clean_list(t_glist **root)
