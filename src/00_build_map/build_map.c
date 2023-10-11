@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 18:54:11 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:01:58 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_bool	build_map(t_data *data, char *file)
 	data->map.path = file;
 	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	if (!(data->map.map_v))
-		exit_error(MAPNOPEN); // correct error
+		exit_error(MALLERR);
 	data->map.fd = open(file, O_RDONLY);
 	if (data->map.fd < 0)
 	{
