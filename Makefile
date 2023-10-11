@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/10 19:19:29 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/11 17:46:31 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,10 +66,12 @@ $(LIBFT_PATH):
 
 clean:
 	@echo $(RED) "Cleaning..." $(EOC)
+	@make clean -C $(LIBFT_DIR)
 	@$(RM) $(OBJ_FILES) $(GNL_OBJS)
 
 fclean: clean
 	@echo $(PURPLE) "Full Cleaning...🧹" $(EOC)
+	@make fclean -C $(LIBFT_DIR)
 	@$(RM) $(NAME)
 
 re: fclean all
