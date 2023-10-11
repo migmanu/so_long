@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 18:25:32 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 18:54:11 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,13 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	return (r);
 }
 
+// Reads from input file and puts lines into the 
+// map vector inside the structure map
 void	fill_in_map_v(t_data *data)
 {
 	char	*line;
 	int		i;
+	int		w;
 
 	line = get_next_line(data->map.fd);
 	i = 0;
@@ -69,15 +72,20 @@ void	fill_in_map_v(t_data *data)
 	{
 		data->map.map_v[i] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (data->map.map_v == NULL)
-			handle_error(data,MALLERR);
-		data->map.map_v[i] = line;
+			handle_error(data, MALLERR);
+		w = 0;
+		while (line[w] != '\0')
+		{
+			data->map.map_v[i][w] = line[w];
+			w++;
+		}
 		data->map.map_v[i][ft_strlen(line)] = '\0';
-		printf("length %ld\n", ft_strlen(line));
-		printf("line: %s\n", data->map.map_v[i]);
 		free(line);
+		line = NULL;
 		line = get_next_line(data->map.fd);
 		i++;
 	}
+	data->map.map_v[i] = NULL;
 }
 
 // Main function in charge of building the map from
