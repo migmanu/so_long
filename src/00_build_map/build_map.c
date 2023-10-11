@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 17:40:59 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 18:25:32 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	fill_in_map_v(t_data *data)
 	{
 		data->map.map_v[i] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (data->map.map_v == NULL)
-			// handle_error
+			handle_error(data,MALLERR);
 		data->map.map_v[i] = line;
 		data->map.map_v[i][ft_strlen(line)] = '\0';
 		printf("length %ld\n", ft_strlen(line));
