@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 19:27:26 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:33:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_bool	build_map(t_data *data, char *file);
 
 /****************	01_parse_map	****************/
 // map_parse.c
-int	parse_map(t_dara *data);
+int	parse_map(t_data *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
