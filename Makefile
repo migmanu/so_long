@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/11 17:46:31 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/11 18:39:49 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,16 +62,16 @@ $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT_PATH):
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) -s
 
 clean:
 	@echo $(RED) "Cleaning..." $(EOC)
-	@make clean -C $(LIBFT_DIR)
+	@make clean -C $(LIBFT_DIR) -s
 	@$(RM) $(OBJ_FILES) $(GNL_OBJS)
 
 fclean: clean
 	@echo $(PURPLE) "Full Cleaning...🧹" $(EOC)
-	@make fclean -C $(LIBFT_DIR)
+	@make fclean -C $(LIBFT_DIR) -s
 	@$(RM) $(NAME)
 
 re: fclean all
