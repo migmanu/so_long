@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 18:25:25 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:11:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_map
 {
 	char	*path;
 	int		fd;
+	int		coll;
+	int		exit;
 	int		line_count;
 	size_t	line_length;
 	char	**map_v;
@@ -63,7 +65,17 @@ typedef struct s_data
 #  define TRUE true
 # endif
 
+/*
+ ***************	00_build_map	***************
+ */
 // build_map
 t_bool	build_map(t_data *data, char *file);
+
+/*
+ ***************	10_error_handling	***************
+ */
+// handle_error.c
+void	handle_error(t_data *data, char str[]);
+void	exit_error(char str[]);
 
 #endif
