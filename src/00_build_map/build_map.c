@@ -6,26 +6,11 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 19:01:58 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 21:13:54 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-void	exit_error(char str[])
-{
-	if (ft_strncmp(str, MAPNOPEN, ft_strlen(str)) == 0)
-		ft_putendl_fd(MAPNOPEN, 1);
-	if (ft_strncmp(str, WRGMAP, ft_strlen(str)) == 0)
-		ft_putendl_fd(WRGMAP, 1);
-	exit(ERROR);
-}
-
-void	handle_error(t_data *data, char str[])
-{
-	ft_free_vec(data->map.map_v);
-	exit_error(str);
-}
 
 // Counts the amount of lines in the map. Error if 
 // if not all line same lenght
@@ -43,10 +28,10 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	else
 	{
 		line = get_next_line(fd);
-		data->map.line_length = ft_strlen(line);
+		data->map.line_length = ft_strlen(line) - 1;
 		while (line != NULL)
 		{
-			l = ft_strlen(line);
+			l = ft_strlen(line) - 1;
 			free(line);
 			if (l != data->map.line_length)
 				exit_error(WRGMAP);
@@ -67,19 +52,21 @@ void	fill_in_map_v(t_data *data)
 	int		w;
 
 	line = get_next_line(data->map.fd);
+	printf("line len %ld\n", ft_strlen(line));
+	printf("line length in map %ld\n", data->map.line_length);
 	i = 0;
 	while (line != NULL)
 	{
-		data->map.map_v[i] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
+		data->map.map_v[i] = ft_calloc(ft_strlen(line), sizeof(char));
 		if (data->map.map_v == NULL)
 			handle_error(data, MALLERR);
 		w = 0;
-		while (line[w] != '\0')
+		while (w < (int) data->map.line_length)
 		{
 			data->map.map_v[i][w] = line[w];
 			w++;
 		}
-		data->map.map_v[i][ft_strlen(line)] = '\0';
+		data->map.map_v[i][data->map.line_length] = '\0';
 		free(line);
 		line = NULL;
 		line = get_next_line(data->map.fd);
@@ -107,6 +94,5 @@ t_bool	build_map(t_data *data, char *file)
 		fill_in_map_v(data);
 		close(data->map.fd);
 	}
-	ft_free_vec(data->map.map_v);
 	return (true);
 }

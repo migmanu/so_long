@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 19:33:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:38:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define SUCCESS 0
 
 # define WRGMAP "Map is not valid\n"
+# define WRGWALL "Map is not correctly delimited by walls\n"
 # define MALLERR "Malloc error\n"
 # define MAPNOPEN "Map could not be opened\n"
 # define NOTRECT "Map is not a rectangle\n"

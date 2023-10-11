@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/11 18:39:49 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/11 20:43:19 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@
 SRCS_DIR = ./src/
 SRCS = main.c \
 	   00_build_map/build_map.c \
+	   01_parse_map/map_parse.c \
+	   10_error_handling/handle_error.c \
 
 OBJ_FILES = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 
