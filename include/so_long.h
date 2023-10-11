@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/10 19:57:30 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 17:21:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,17 @@ typedef enum e_bool
 
 typedef struct s_map
 {
+	char	*path;
 	int		fd;
-	int		line_cont;
+	int		line_count;
 	size_t	line_length;
-	char	**map;
+	char	**map_v;
 }	t_map;
+
+typedef struct s_data
+{
+	t_map	map;
+}	t_data;
 
 # ifndef FALSE
 #  define FALSE false
@@ -57,6 +63,6 @@ typedef struct s_map
 # endif
 
 // build_map
-t_bool	build_map(char *file);
+t_bool	build_map(t_data *data, char *file);
 
 #endif

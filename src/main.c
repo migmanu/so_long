@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/10 19:36:38 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:07:38 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int argc, char **argv)
 {
+	t_data	data;
+
 	printf("argc %d", argc);
-	build_map(argv[1]);
+	build_map(&data, argv[1]);
 	return (0);
 }
