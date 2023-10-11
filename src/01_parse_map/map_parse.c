@@ -6,13 +6,31 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:58:33 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 21:17:09 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/11 21:29:59 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	check_walls(t_data *data)
+static void	check_chars(t_data *data)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	printf("line count: %d\n", data->map.line_count);
+	while (i < data->map.line_count)
+	{
+		c = 0;
+		while (data->map.map_v[i][c] != '\0')
+		{
+			check_char_type(data->map.map_v[i][c]);
+		}
+		i++;
+	}
+}
+
+static void	check_walls(t_data *data)
 {
 	int	i;
 	int	c;
