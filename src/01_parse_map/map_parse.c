@@ -6,27 +6,60 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:58:33 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 21:29:59 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:52:41 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+// check chars are valid
+void	check_char_type(t_data *data, char c, int y, int x)
+{
+	if (c == 'C')
+	{
+		data->map.coll++;
+	}
+	else if (c == 'E')
+	{
+		data->map.exit++;
+	}
+	else if (c == 'P')
+	{
+		data->map.player++;
+		data->map.player_pos[0] = y;
+		data->map.player_pos[1] = x;
+	}
+	else if (c == '1' || c == '0')
+	{
+		return ;
+	}
+	else
+	{
+		handle_error(data, WRGMAP);
+	}
+}
+
+// calls check_char_type for each character and handles
+// most errors
 static void	check_chars(t_data *data)
 {
 	int	i;
 	int	c;
 
 	i = 0;
-	printf("line count: %d\n", data->map.line_count);
 	while (i < data->map.line_count)
 	{
 		c = 0;
 		while (data->map.map_v[i][c] != '\0')
 		{
-			check_char_type(data->map.map_v[i][c]);
+			check_char_type(data, data->map.map_v[i][c], i, c);
+			c++;
 		}
 		i++;
+	}
+	if (data->map.coll < 1 || data->map.exit != 1 || data->map.player != 1)
+	{
+		handle_error(data, WRGMAP);
 	}
 }
 
@@ -61,7 +94,8 @@ static void	check_walls(t_data *data)
 int	parse_map(t_data *data)
 {
 	if (data->map.map_v == NULL)
-		return (1); // manage error
+		handle_error(data, UNXERR);
 	check_walls(data);
+	check_chars(data);
 	return (0);
 }

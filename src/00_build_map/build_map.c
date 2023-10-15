@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 21:13:54 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:42:51 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ t_bool	build_map(t_data *data, char *file)
 {
 	data->map.line_count = get_map_lines_nbr(data, file);
 	data->map.path = file;
+	data->map.coll = 0;
+	data->map.exit = 0;
+	data->map.player = 0;
 	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	if (!(data->map.map_v))
 		exit_error(MALLERR);

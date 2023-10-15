@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 19:38:50 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:40:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@
 # define NOTRECT "Map is not a rectangle\n"
 # define NOEXIT "Map has no valid exit or valid path to exit\n"
 # define COLLERR "Map has no valid path to collectables\n"
+# define UNXERR "Unexpected error ocurred\n"
 
 typedef enum e_bool
 {
 	false = 0,
-	true = 1
+	true = 1,
 }	t_bool;
 
 typedef struct s_map
@@ -48,6 +49,8 @@ typedef struct s_map
 	int		fd;
 	int		coll;
 	int		exit;
+	int		player;
+	int		player_pos[2];
 	int		line_count;
 	size_t	line_length;
 	char	**map_v;
