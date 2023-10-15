@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/11 20:22:42 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 19:27:32 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	main(int argc, char **argv)
 
 	printf("argc %d", argc);
 	build_map(&data, argv[1]);
-	parse_map(&data);
+	check_map(&data);
+	if (flood_map(data) == -1)
+		handle_error(&data, NOPATH);
 
 	ft_free_vec(data.map.map_v);
 	return (0);
