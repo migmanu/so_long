@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:58:33 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 16:52:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 17:28:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	check_walls(t_data *data)
 	}
 }
 
-int	parse_map(t_data *data)
+int	check_map(t_data *data)
 {
 	if (data->map.map_v == NULL)
 		handle_error(data, UNXERR);
