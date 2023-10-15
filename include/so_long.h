@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 16:40:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/15 19:27:19 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define MALLERR "Malloc error\n"
 # define MAPNOPEN "Map could not be opened\n"
 # define NOTRECT "Map is not a rectangle\n"
-# define NOEXIT "Map has no valid exit or valid path to exit\n"
+# define NOPATH "Map has no valid path to exit or collectable\n"
 # define COLLERR "Map has no valid path to collectables\n"
 # define UNXERR "Unexpected error ocurred\n"
 
@@ -73,13 +73,16 @@ typedef struct s_data
 // build_map
 t_bool	build_map(t_data *data, char *file);
 
-/****************	01_parse_map	****************/
+/****************	01_check_map	****************/
 // map_parse.c
-int	parse_map(t_data *data);
+int	check_map(t_data *data);
+// map_flood.c
+int	flood_map(t_data data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
 void	handle_error(t_data *data, char str[]);
 void	exit_error(char str[]);
+
 
 #endif
