@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 15:28:40 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:51:16 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <limits.h>
 # include "../libft/libft.h"
 # include "get_next_line.h"
-# include "MLX42.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 
 # define ERROR -1
 # define FAILURE 1

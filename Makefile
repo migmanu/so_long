@@ -6,26 +6,26 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/16 16:44:24 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 16:53:11 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS_DIR = ./src/
 SRCS = main.c \
-	   00_build_map/build_map.c \
-	   01_check_map/map_parse.c \
-	   01_check_map/map_flood.c \
-	   10_error_handling/handle_error.c \
+       00_build_map/build_map.c \
+       01_check_map/map_parse.c \
+       01_check_map/map_flood.c \
+       10_error_handling/handle_error.c
 
-OBJ_FILES = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
+OBJ_FILES = $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
 # GNL
 GNL_DIR = ./get_next_line/
-GNL = 	get_next_line.c \
-		get_next_line_utils.c \
+GNL = get_next_line.c \
+      get_next_line_utils.c
 
-GNL_OBJS = ${addprefix ${GNL_DIR}, ${GNL:.c=.o}}
+GNL_OBJS = $(addprefix $(GNL_DIR), $(GNL:.c=.o))
 
 # LIBFT
 LIBFT_DIR = ./libft
@@ -54,7 +54,7 @@ CYAN:="\033[1;36m"
 WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
 
-all: ${NAME}
+all: $(NAME)
 
 $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 	@echo $(CYAN) "Compiling $@...🛠️"
@@ -67,11 +67,7 @@ $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 $(LIBFT_PATH):
 	@$(MAKE) -C $(LIBFT_DIR) -s
 
-clone_build_MLX42: $(MLX42_PATH)
-
 $(MLX42_PATH):
-	@rm -rf $(MLX42_DIR)
-	@git clone https://github.com/codam-coding-college/MLX42.git $(MLX42_DIR)
 	@cmake -B $(MLX42_DIR)/build $(MLX42_DIR)
 	@cmake --build $(MLX42_DIR)/build -j4
 
@@ -87,5 +83,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clone_build_MLX42
+.PHONY: all clean fclean
 
