@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/16 16:34:17 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 16:44:24 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,6 @@ fclean: clean
 	@echo $(PURPLE) "Full Cleaning...🧹" $(EOC)
 	@make fclean -C $(LIBFT_DIR) -s
 	@$(RM) $(NAME)
-	@rm -rf $(MLX42_DIR)
 
 re: fclean all
 
