@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 16:07:14 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/16 17:19:33 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 		ft_error();
 
 	// Even after the image is being displayed, we can still modify the buffer.
-	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
+	mlx_put_pixel(img, 100, 100, 0xFF0000FF);
 
 	// Register a hook and pass mlx as an optional param.
 	// NOTE: Do this before calling mlx_loop!
