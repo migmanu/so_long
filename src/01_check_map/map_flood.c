@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:30:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 14:31:24 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/16 14:33:47 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	check_flood(t_data data)
 
 char	**copy_map(t_data data)
 {
-	char **map_copy;
+	char	**map_copy;
 	int		i;
 	int		c;
 
@@ -82,7 +82,7 @@ char	**copy_map(t_data data)
 		c = 0;
 		map_copy[i] = malloc((data.map.line_length + 1) * sizeof(char));
 		if (!map_copy[i])
-			break;
+			break ;
 		while (c < (int)data.map.line_length)
 		{
 			map_copy[i][c] = data.map.map_v[i][c];
@@ -100,7 +100,7 @@ char	**copy_map(t_data data)
 int	flood_map(t_data data)
 {
 	printf("flood map init\n");
-	char **map_copy;
+	char	**map_copy;
 
 	map_copy = copy_map(data);
 	printf("map copy:\n");
