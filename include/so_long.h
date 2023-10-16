@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 19:27:19 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/16 15:28:40 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <limits.h>
 # include "../libft/libft.h"
 # include "get_next_line.h"
+# include "MLX42.h"
 
 # define ERROR -1
 # define FAILURE 1
@@ -36,12 +37,6 @@
 # define NOPATH "Map has no valid path to exit or collectable\n"
 # define COLLERR "Map has no valid path to collectables\n"
 # define UNXERR "Unexpected error ocurred\n"
-
-typedef enum e_bool
-{
-	false = 0,
-	true = 1,
-}	t_bool;
 
 typedef struct s_map
 {
@@ -61,17 +56,9 @@ typedef struct s_data
 	t_map	map;
 }	t_data;
 
-# ifndef FALSE
-#  define FALSE false
-# endif
-
-# ifndef TRUE
-#  define TRUE true
-# endif
-
 /****************	00_build_map	****************/
 // build_map
-t_bool	build_map(t_data *data, char *file);
+int	build_map(t_data *data, char *file);
 
 /****************	01_check_map	****************/
 // map_parse.c

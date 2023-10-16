@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/16 14:58:03 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 16:34:17 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,13 @@ LIBFT_DIR = ./libft
 LIBFT_PATH = $(LIBFT_DIR)/libft.a
 
 # MLX42
-MLX42_DIR = ~/MLX42/build
-MLX42_PATH = $(MLX42_DIR)/libmlx42.a
+MLX42_DIR = ./MLX42
+MLX42_PATH = $(MLX42_DIR)/build/libmlx42.a
 
 # LIBRARIES
-INCLUDE_DIRS = -I$(LIBFT_DIR) -I$(MLX42_DIR)/include
-LDFLAGS = -L$(LIBFT_DIR) -lft
-CFLAGS = -Wall -Werror -Wextra -g $(INCLUDE_DIRS) -ldl -lglfw -pthread -lm
+INCLUDE_DIRS = -I ./include -I $(LIBFT_DIR) -I $(MLX42_DIR)/include
+LDFLAGS = -L$(LIBFT_DIR) -lft -lglfw
+CFLAGS = -Wall -Werror -Wextra -g $(INCLUDE_DIRS) -ldl -pthread -lm
 
 # COMPILATION
 NAME = so_long
@@ -58,7 +58,7 @@ all: ${NAME}
 
 $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 	@echo $(CYAN) "Compiling $@...🛠️"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES) $(GNL_OBJS) $(LDFLAGS) $(MLX42_PATH)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES) $(GNL_OBJS) $(LDFLAGS)
 	@echo $(GREEN) "OK COMPILED"
 
 %.o: %.c
@@ -66,6 +66,14 @@ $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 
 $(LIBFT_PATH):
 	@$(MAKE) -C $(LIBFT_DIR) -s
+
+clone_build_MLX42: $(MLX42_PATH)
+
+$(MLX42_PATH):
+	@rm -rf $(MLX42_DIR)
+	@git clone https://github.com/codam-coding-college/MLX42.git $(MLX42_DIR)
+	@cmake -B $(MLX42_DIR)/build $(MLX42_DIR)
+	@cmake --build $(MLX42_DIR)/build -j4
 
 clean:
 	@echo $(RED) "Cleaning..." $(EOC)
@@ -76,8 +84,9 @@ fclean: clean
 	@echo $(PURPLE) "Full Cleaning...🧹" $(EOC)
 	@make fclean -C $(LIBFT_DIR) -s
 	@$(RM) $(NAME)
+	@rm -rf $(MLX42_DIR)
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean clone_build_MLX42
 

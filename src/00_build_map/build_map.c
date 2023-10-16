@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 16:42:51 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/16 15:28:58 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	fill_in_map_v(t_data *data)
 
 // Main function in charge of building the map from
 // the .ber file
-t_bool	build_map(t_data *data, char *file)
+int	build_map(t_data *data, char *file)
 {
 	data->map.line_count = get_map_lines_nbr(data, file);
 	data->map.path = file;
@@ -97,5 +97,5 @@ t_bool	build_map(t_data *data, char *file)
 		fill_in_map_v(data);
 		close(data->map.fd);
 	}
-	return (true);
+	return (0);
 }
