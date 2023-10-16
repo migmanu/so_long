@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/16 16:53:11 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 16:57:47 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ MLX42_PATH = $(MLX42_DIR)/build/libmlx42.a
 
 # LIBRARIES
 INCLUDE_DIRS = -I ./include -I $(LIBFT_DIR) -I $(MLX42_DIR)/include
-LDFLAGS = -L$(LIBFT_DIR) -lft -lglfw
-CFLAGS = -Wall -Werror -Wextra -g $(INCLUDE_DIRS) -ldl -pthread -lm
+LDFLAGS = -L$(LIBFT_DIR) -lft
+CFLAGS = -Wall -Werror -Wextra -g $(INCLUDE_DIRS)  -lglfw -pthread -lm
 
 # COMPILATION
 NAME = so_long
