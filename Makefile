@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/15 17:54:48 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 14:58:03 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ LIBFT_DIR = ./libft
 LIBFT_PATH = $(LIBFT_DIR)/libft.a
 
 # MLX42
-MLX42_DIR = MLX42/build
+MLX42_DIR = ~/MLX42/build
 MLX42_PATH = $(MLX42_DIR)/libmlx42.a
 
 # LIBRARIES
