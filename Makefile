@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/16 17:03:12 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/16 17:50:32 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ $(LIBFT_PATH):
 
 $(MLX42_PATH):
 	@cmake -B $(MLX42_DIR)/build $(MLX42_DIR)
-	@cmake --build $(MLX42_DIR)/build -j4
+	@cmake --build $(MLX42_DIR)/build -j4 -DDEBUG=1
 
 clean:
 	@echo $(RED) "Cleaning..." $(EOC)
