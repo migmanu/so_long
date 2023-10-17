@@ -6,14 +6,17 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 15:28:58 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/17 13:37:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-// Counts the amount of lines in the map. Error if 
-// if not all line same lenght
+// Counts the amount of lines in the map. Also
+// sets the line_length. Error if 
+// if not all line same lenght. Lines count is later
+// considered the y axis. Because of reasosns,
+// coordinates will be given (y, x)
 int	get_map_lines_nbr(t_data *data, char *file)
 {
 	char	*line;
