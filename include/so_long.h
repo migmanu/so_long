@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 18:35:15 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/17 18:59:05 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define UNXERR "Unexpected error ocurred\n"
 
 # define FLOOR1 "assets/textures/tiles/StoneBrickFloor.png"
+#define WIDTH 32
+#define HEIGHT 32
 
 typedef struct s_map
 {
@@ -56,6 +58,7 @@ typedef struct s_map
 typedef struct s_data
 {
 	t_map	map;
+	mlx_t	*mlx;
 }	t_data;
 
 /****************	00_build_map	****************/
@@ -67,6 +70,10 @@ int	build_map(t_data *data, char *file);
 int	check_map(t_data *data);
 // map_flood.c
 int	flood_map(t_data data);
+
+/****************	02_fill_map	****************/
+// fill_map.c
+void	fill_map(t_data *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
