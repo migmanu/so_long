@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 17:18:30 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:32:13 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		handle_error(&data, NOPATH);
 
 	// Start mlx
-	mlx_t* mlx = mlx_init((WIDTH * data.map.line_length), (HEIGHT * data.map.line_count), "Test", true);
+	mlx_t* mlx = mlx_init((WIDTH * data.map.line_length * 4), (HEIGHT * data.map.line_count * 4), "Test", true);
 	if (!mlx)
         	error();
 
@@ -59,12 +59,12 @@ int	main(int argc, char **argv)
 	printf("about to display lin %d, col %zu\n", data.map.line_count, data.map.line_length);
 	int	lin = 0;
 	int	col;
-	while (lin < (int)data.map.line_count)
+	while (lin < ((int)data.map.line_count * 4))
 	{
 		col = 0;
-		while (col < (int)data.map.line_length)
+		while (col < ((int)data.map.line_length * 4))
 		{
-			mlx_image_to_window(mlx, img, (HEIGHT *col), (WIDTH *lin));
+			mlx_image_to_window(mlx, img, (HEIGHT * col), (WIDTH * lin));
 			col++;
 		}
 		lin++;
