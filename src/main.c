@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 18:32:13 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/17 18:35:40 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
         	error();
 
 	// Try to load the file
-	mlx_texture_t* texture = mlx_load_png("./assets/StoneBrickFloor.png");
+	mlx_texture_t* texture = mlx_load_png(FLOOR1);
 	if (!texture)
         	error();
 

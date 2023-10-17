@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 16:51:16 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/17 18:35:15 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define NOPATH "Map has no valid path to exit or collectable\n"
 # define COLLERR "Map has no valid path to collectables\n"
 # define UNXERR "Unexpected error ocurred\n"
+
+# define FLOOR1 "assets/textures/tiles/StoneBrickFloor.png"
 
 typedef struct s_map
 {
