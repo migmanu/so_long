@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 18:59:20 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/20 17:03:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 	if (flood_map(data) == -1)
 		handle_error(&data, NOPATH);
 	fill_map(&data);
+	ft_free_vec(data.map.map_v);
 	return (0);
 }

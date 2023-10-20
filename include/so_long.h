@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 18:59:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/20 12:37:28 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@
 # define COLLERR "Map has no valid path to collectables\n"
 # define UNXERR "Unexpected error ocurred\n"
 
-# define FLOOR1 "assets/textures/tiles/StoneBrickFloor.png"
-#define WIDTH 32
-#define HEIGHT 32
+# define FLOOR1 "assets/textures/tiles/wood_floor.png"
+# define WALL1 "assets/textures/tiles/junglegrass.png"
+#define SIZE 64
 
 typedef struct s_map
 {
@@ -55,10 +55,27 @@ typedef struct s_map
 	char	**map_v;
 }	t_map;
 
+typedef struct s_img
+{
+	mlx_image_t	*floor_1;
+	mlx_image_t	*floor_2;
+	mlx_image_t	*floor_3;
+	mlx_image_t	*wall_1;
+	mlx_image_t	*wall_2;
+	mlx_image_t	*wall_3;
+	mlx_image_t	*bed;
+	mlx_image_t	*sofa;
+	mlx_image_t	*table;
+	mlx_image_t	*chair1;
+	mlx_image_t	*chair2;
+	mlx_image_t	*coll;
+}	t_img;
+
 typedef struct s_data
 {
 	t_map	map;
 	mlx_t	*mlx;
+	t_img	img;
 }	t_data;
 
 /****************	00_build_map	****************/
@@ -74,11 +91,12 @@ int	flood_map(t_data data);
 /****************	02_fill_map	****************/
 // fill_map.c
 void	fill_map(t_data *data);
+// load_assets.c
+void	load_assets(t_data *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
 void	handle_error(t_data *data, char str[]);
 void	exit_error(char str[]);
-
 
 #endif

@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/17 18:59:44 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/19 20:37:09 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = main.c \
        01_check_map/map_flood.c \
        10_error_handling/handle_error.c \
 	   02_fill_map/fill_map.c \
+	   02_fill_map/load_assets.c \
 
 OBJ_FILES = $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
