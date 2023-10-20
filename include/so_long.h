@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/20 12:37:28 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/21 00:34:46 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,21 @@
 # define NOPATH "Map has no valid path to exit or collectable\n"
 # define COLLERR "Map has no valid path to collectables\n"
 # define UNXERR "Unexpected error ocurred\n"
+# define TEXTERR "Texture could not be loaded\n"
+# define IMGERR "Image could not be loaded\n"
 
 # define FLOOR1 "assets/textures/tiles/wood_floor.png"
-# define WALL1 "assets/textures/tiles/junglegrass.png"
+
+# define WALL_LEFT "assets/textures/tiles/wall_left.png"
+# define WALL_RIGHT "assets/textures/tiles/wall_right.png"
+# define WALL_UP "assets/textures/tiles/wall_up.png"
+# define WALL_DOWN "assets/textures/tiles/wall_down.png"
+# define CORNER_NW "assets/textures/tiles/wall_corner_nw.png"
+# define CORNER_NE "assets/textures/tiles/wall_corner_ne.png"
+# define CORNER_SW "assets/textures/tiles/wall_corner_sw.png"
+# define CORNER_SE "assets/textures/tiles/wall_corner_se.png"
+
+# define DORA_1 "assets/textures/robot/robot_stop_1.png"
 #define SIZE 64
 
 typedef struct s_map
@@ -60,9 +72,15 @@ typedef struct s_img
 	mlx_image_t	*floor_1;
 	mlx_image_t	*floor_2;
 	mlx_image_t	*floor_3;
-	mlx_image_t	*wall_1;
-	mlx_image_t	*wall_2;
-	mlx_image_t	*wall_3;
+	mlx_image_t	*wall_left;
+	mlx_image_t	*wall_right;
+	mlx_image_t	*wall_up;
+	mlx_image_t	*wall_down;
+	mlx_image_t	*corner_nw;
+	mlx_image_t	*corner_ne;
+	mlx_image_t	*corner_sw;
+	mlx_image_t	*corner_se;
+	mlx_image_t	*dora_1;
 	mlx_image_t	*bed;
 	mlx_image_t	*sofa;
 	mlx_image_t	*table;
