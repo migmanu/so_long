@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:30:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/16 17:17:58 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/21 18:54:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	print_vec(char **map, int y)
 
 int	check_flood(t_data data, char **map_copy)
 {
-	print_vec(map_copy, data.map.line_count);
 	int	i;
 	int	c;
 

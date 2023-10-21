@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/21 00:36:09 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/21 21:31:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,21 @@ void	fill_outer_walls(t_data *data)
 	}
 }
 
+void	fill_dirt(t_data *data, int x, int y)
+{
+	if ((x + y) % 2 == 0)
+	{
+		mlx_image_to_window(data->mlx,
+			data->img.dirt_1, x * SIZE, y * SIZE);
+	}
+	else
+	{
+		mlx_image_to_window(data->mlx,
+			data->img.dirt_2, x * SIZE, y * SIZE);
+
+	}
+}
+
 void	fill_others(t_data *data)
 {
 	int	y;
@@ -89,9 +104,10 @@ void	fill_others(t_data *data)
 		while (x < (int)data->map.line_length)
 		{
 			if (data->map.map_v[y][x] == 'P')
-			{
-				mlx_image_to_window(data->mlx, data->img.dora_1, x * SIZE, y * SIZE);
-			}
+				mlx_image_to_window(data->mlx,
+					data->img.dora_1, x * SIZE, y * SIZE);
+			if (data->map.map_v[y][x] == 'C')
+				fill_dirt(data, x, y);
 			x++;
 		}
 		y++;
@@ -116,6 +132,7 @@ void	fill_map(t_data *data)
 	fill_outer_walls(data);
 	fill_corners(data);
 	fill_others(data);
+	fill_inner_walls(data);
 	mlx_loop(data->mlx);
 	mlx_delete_image(data->mlx, data->img.floor_1);
 	mlx_delete_image(data->mlx, data->img.wall_left);
