@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:34:04 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 23:01:59 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,13 @@ void	fill_inner_walls(t_data *data);
 /****************	03_move_character	****************/
 // move_character.c
 void	move_hook(mlx_key_data_t keydata, void *data);
+void	check_game_status(t_data *data);
+void	print_moves(t_data *data);
+// movements.c
+void	move_up(t_data *data);
+void	move_down(t_data *data);
+void	move_left(t_data *data);
+void	move_right(t_data *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
