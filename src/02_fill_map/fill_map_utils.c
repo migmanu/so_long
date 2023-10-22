@@ -6,11 +6,32 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:01:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 11:05:27 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 11:51:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
+
+// Chooses different textures for the inner walls and sends
+// them to the image
+void	chose_inner_wall(t_data *data, int x, int y)
+{
+	int	r;
+
+	r = x + y * (int)data->map.line_length * data->map.line_count * 11;
+	if (r % 2 == 0)
+	{
+		mlx_image_to_window(data->mlx,
+				data->img.furni_1,
+				(x *  SIZE), (y * SIZE));
+	}
+	else
+	{
+		mlx_image_to_window(data->mlx,
+				data->img.table,
+				(x *  SIZE), (y * SIZE));
+	}
+}
 
 void	fill_inner_walls(t_data *data)
 {
@@ -20,21 +41,11 @@ void	fill_inner_walls(t_data *data)
 	y = 1;
 	while (y < data->map.line_count - 1)
 	{
-		x = 0;
+		x = 1;
 		while (x < (int)data->map.line_length - 1)
 		{
 			if (data->map.map_v[y][x] == '1')
-			{
-				mlx_image_to_window(data->mlx,
-						data->img.wall_left,
-						(x *  SIZE), (y * SIZE));
-			}
-			if (data->map.map_v[y][x] == 'C')
-			{
-				mlx_image_to_window(data->mlx,
-						data->img.furni_1,
-						(x *  SIZE), (y * SIZE));
-			}
+				chose_inner_wall(data, x, y);
 			x++;
 		}
 		y++;
