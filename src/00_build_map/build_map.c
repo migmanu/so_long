@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/17 13:37:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:16:14 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 // coordinates will be given (y, x)
 int	get_map_lines_nbr(t_data *data, char *file)
 {
+	printf("get_map_lines_nbr init\n");
 	char	*line;
 	int		fd;
 	int		r;
@@ -43,6 +44,7 @@ int	get_map_lines_nbr(t_data *data, char *file)
 		}
 		close(fd);
 	}
+	printf("amount of lines (y axis): %d\n", r);
 	return (r);
 }
 
@@ -82,6 +84,7 @@ void	fill_in_map_v(t_data *data)
 // the .ber file
 int	build_map(t_data *data, char *file)
 {
+	printf("build map init\n");
 	data->map.line_count = get_map_lines_nbr(data, file);
 	data->map.path = file;
 	data->map.coll = 0;

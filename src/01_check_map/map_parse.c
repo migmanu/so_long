@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:58:33 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 17:28:24 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:17:13 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	check_char_type(t_data *data, char c, int y, int x)
 	else if (c == 'P')
 	{
 		data->map.player++;
-		data->map.player_pos[0] = y;
-		data->map.player_pos[1] = x;
+		data->player_pos_y = y;
+		data->player_pos_x = x;
 	}
 	else if (c == '1' || c == '0')
 	{
