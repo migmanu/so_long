@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:16:14 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:37:05 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,23 @@ void	fill_in_map_v(t_data *data)
 	data->map.map_v[i] = NULL;
 }
 
+void	fill_data(t_data *data, char *file)
+{
+	data->map.line_count = get_map_lines_nbr(data, file);
+	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
+	data->map.path = file;
+	data->map.coll = 0;
+	data->map.exit = 0;
+	data->map.player = 0;
+	data->moves = 0;
+}
+
 // Main function in charge of building the map from
 // the .ber file
 int	build_map(t_data *data, char *file)
 {
 	printf("build map init\n");
-	data->map.line_count = get_map_lines_nbr(data, file);
-	data->map.path = file;
-	data->map.coll = 0;
-	data->map.exit = 0;
-	data->map.player = 0;
-	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
+	fill_data(data, file);
 	if (!(data->map.map_v))
 		exit_error(MALLERR);
 	data->map.fd = open(file, O_RDONLY);
