@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:34:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 22:58:02 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	fill_dirt(t_data *data, int x, int y)
 	{
 		mlx_image_to_window(data->mlx,
 			data->img.poop, x * SIZE, y * SIZE);
-
 	}
 }
 

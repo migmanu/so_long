@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:53:51 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 22:58:26 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,3 @@ void	move_hook(mlx_key_data_t keydata, void *data)
 	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
 		move_left(data);
 }
-

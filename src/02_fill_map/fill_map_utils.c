@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:01:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:11:10 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 22:56:55 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	chose_inner_wall(t_data *data, int x, int y)
 	if (r % 2 == 0)
 	{
 		mlx_image_to_window(data->mlx,
-				data->img.plan_1,
-				(x *  SIZE), (y * SIZE));
+			data->img.plan_1,
+			(x *  SIZE), (y * SIZE));
 	}
 	else
 	{
 		mlx_image_to_window(data->mlx,
-				data->img.table,
-				(x *  SIZE), (y * SIZE));
+			data->img.table,
+			(x * SIZE), (y * SIZE));
 	}
 }
 
