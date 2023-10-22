@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 11:49:10 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 15:55:40 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	load_others(t_data *data)
 	data->img.furni_1 = texture_to_image(data, &texture);
 	texture = load_texture(data, TABLE);
 	data->img.table = texture_to_image(data, &texture);
+	texture = load_texture(data, POOP);
+	data->img.poop = texture_to_image(data, &texture);
 }
 
 void	load_assets(t_data *data)

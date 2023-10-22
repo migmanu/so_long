@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 11:52:22 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 15:55:25 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@
 # define CORNER_SW "assets/textures/tiles/wall_corner_sw.png"
 # define CORNER_SE "assets/textures/tiles/wall_corner_se.png"
 
-# define DIRT_1 "assets/textures/tiles/dirt_1.png"
-# define DIRT_2 "assets/textures/tiles/dirt_2.png"
+# define DIRT_1 "assets/textures/collectables/dirt_1.png"
+# define DIRT_2 "assets/textures/collectables/dirt_2.png"
+# define POOP "assets/textures/collectables/poop.png"
 
 # define FURNI_1 "assets/textures/tiles/cajonera.png"
 # define TABLE "assets/textures/tiles/mesa.png"
@@ -88,6 +89,7 @@ typedef struct s_img
 	mlx_image_t	*corner_se;
 	mlx_image_t	*dirt_1;
 	mlx_image_t	*dirt_2;
+	mlx_image_t	*poop;
 	mlx_image_t	*dora_1;
 	mlx_image_t	*furni_1;
 	mlx_image_t	*table;
