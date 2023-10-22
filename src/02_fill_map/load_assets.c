@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 16:27:36 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:08:47 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	load_assets(t_data *data)
 {
 	printf("load assets init\n");
 	load_walls(data);
+	printf("load walls init\n");
 	load_others(data);
 	printf("load assets end\n");
 }

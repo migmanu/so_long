@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 16:27:17 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:03:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_map
 	int		coll;
 	int		exit;
 	int		player;
-	int		player_pos[2];
 	int		line_count;
 	size_t	line_length;
 	char	**map_v;
@@ -107,6 +106,8 @@ typedef struct s_data
 	t_map	map;
 	mlx_t	*mlx;
 	t_img	img;
+	int		player_pos_x;
+	int		player_pos_y;
 }	t_data;
 
 /****************	00_build_map	****************/
@@ -126,6 +127,10 @@ void	fill_map(t_data *data);
 void	load_assets(t_data *data);
 // fill_map_utils.c
 void	fill_inner_walls(t_data *data);
+
+/****************	03_move_character	****************/
+// move_character.c
+void	move_hook(mlx_key_data_t keydata, void *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c

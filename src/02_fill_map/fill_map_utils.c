@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:01:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 16:27:47 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:11:10 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // them to the image
 void	chose_inner_wall(t_data *data, int x, int y)
 {
+	printf("fill inner walls init\n");
 	int	r;
 
 	r = x + y * (int)data->map.line_length * data->map.line_count * 11;
