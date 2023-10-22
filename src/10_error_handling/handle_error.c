@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:07:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/15 19:28:20 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 11:14:25 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	exit_error(char str[])
 {
+	ft_putendl_fd("Error", 1);
 	if (ft_strncmp(str, MAPNOPEN, ft_strlen(str)) == 0)
 		ft_putendl_fd(MAPNOPEN, 1);
 	if (ft_strncmp(str, WRGMAP, ft_strlen(str)) == 0)
