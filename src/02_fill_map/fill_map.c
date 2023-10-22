@@ -6,13 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:12:18 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:34:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static void	error(void)
+static void	error(void) // remove!
 {
 	puts(mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
