@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:03:12 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 18:34:04 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct s_data
 	t_img	img;
 	int		player_pos_x;
 	int		player_pos_y;
+	int		moves;
 }	t_data;
 
 /****************	00_build_map	****************/
