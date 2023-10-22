@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/21 21:28:26 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/22 11:04:32 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@
 # define DIRT_1 "assets/textures/tiles/dirt_1.png"
 # define DIRT_2 "assets/textures/tiles/dirt_2.png"
 
+# define FURNI_1 "assets/textures/tiles/cajonera.png"
+
 # define DORA_1 "assets/textures/robot/robot_stop_1.png"
 #define SIZE 64
 
@@ -86,6 +88,7 @@ typedef struct s_img
 	mlx_image_t	*dirt_1;
 	mlx_image_t	*dirt_2;
 	mlx_image_t	*dora_1;
+	mlx_image_t	*furni_1;
 	mlx_image_t	*bed;
 	mlx_image_t	*sofa;
 	mlx_image_t	*table;
