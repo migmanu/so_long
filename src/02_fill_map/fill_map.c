@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 16:41:23 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:10:10 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ void	fill_outer_walls(t_data *data)
 void	fill_dirt(t_data *data, int x, int y)
 {
 	printf("fill dirt init\n");
-		data->img.coll = data->img.dirt_1;
-		mlx_image_to_window(data->mlx,
-			data->img.coll, x * SIZE, y * SIZE);
+	data->img.coll = data->img.dirt_1;
+	mlx_image_to_window(data->mlx,
+		data->img.coll, x * SIZE, y * SIZE);
 }
 
 void	fill_others(t_data *data)
