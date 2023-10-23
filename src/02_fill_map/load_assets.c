@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:08:47 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 12:08:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void	load_others(t_data *data)
 
 	texture = load_texture(data, FLOOR1);
 	data->img.floor_1 = texture_to_image(data, &texture);
-	texture = load_texture(data, DORA_1);
-	data->img.dora_1 = texture_to_image(data, &texture);
 	texture = load_texture(data, DIRT_1);
 	data->img.dirt_1 = texture_to_image(data, &texture);
 	texture = load_texture(data, DIRT_2);
@@ -77,11 +75,24 @@ void	load_others(t_data *data)
 	data->img.plan_1 = texture_to_image(data, &texture);
 }
 
+void	load_dora(t_data *data)
+{
+	mlx_texture_t	*texture;
+
+	texture = load_texture(data, DORA_S_D);
+	data->img.dora_s_d = texture_to_image(data, &texture);
+	texture = load_texture(data, DORA_S_U);
+	data->img.dora_s_u = texture_to_image(data, &texture);
+	texture = load_texture(data, DORA_S_L);
+	data->img.dora_s_l = texture_to_image(data, &texture);
+	texture = load_texture(data, DORA_S_R);
+	data->img.dora_s_r = texture_to_image(data, &texture);
+}
+
 void	load_assets(t_data *data)
 {
 	printf("load assets init\n");
 	load_walls(data);
-	printf("load walls init\n");
+	load_dora(data);
 	load_others(data);
-	printf("load assets end\n");
 }
