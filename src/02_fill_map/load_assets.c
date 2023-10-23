@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 18:43:23 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 20:01:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,10 @@ void	load_dora(t_data *data)
 	data->img.dora_s_l = texture_to_image(data, &texture);
 	texture = load_texture(data, DORA_S_R);
 	data->img.dora_s_r = texture_to_image(data, &texture);
+	texture = load_texture(data, CHARGER_READY);
+	data->img.charger_r = texture_to_image(data, &texture);
+	texture = load_texture(data, CHARGER_WAITING);
+	data->img.charger_w = texture_to_image(data, &texture);
 }
 
 void	load_assets(t_data *data)

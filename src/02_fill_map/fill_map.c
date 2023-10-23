@@ -6,17 +6,11 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 18:12:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 22:23:33 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-static void	error(void) // remove!
-{
-	puts(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}
 
 void	fill_floor(t_data *data)
 {
@@ -97,33 +91,38 @@ void	fill_dirt(t_data *data, int x, int y)
 	}
 }
 
+void	fill_dora(t_data *data, int x, int y)
+{
+	data->img.dora = data->img.dora_s_d;
+	mlx_image_to_window(data->mlx,
+			data->img.dora, x * SIZE, y * SIZE);
+	data->player_pos_x = x;
+	data->player_pos_y = y;
+}
+
 void	fill_others(t_data *data)
 {
-	printf("fill others init\n");
 	int	y;
 	int	x;
 
-	y = 0;
-	while (y < data->map.line_count)
+	y = -1;
+	while (++y < data->map.line_count)
 	{
 		x = 0;
 		while (x < (int)data->map.line_length)
 		{
 			if (data->map.map_v[y][x] == 'P')
-			{
-				printf("player gonna b placed\n");
-				data->img.dora = data->img.dora_s_d;
-				mlx_image_to_window(data->mlx,
-					data->img.dora, x * SIZE, y * SIZE);
-				printf("player placed\n");
-				data->player_pos_x = x;
-				data->player_pos_y = y;
-			}
-			if (data->map.map_v[y][x] == 'C')
+				fill_dora(data, x, y);
+			else if (data->map.map_v[y][x] == 'C')
 				fill_dirt(data, x, y);
+			else if (data->map.map_v[y][x] == 'E')
+			{
+				printf("e found!\n");
+				mlx_image_to_window(data->mlx,
+						data->img.charger_w, x * SIZE, y * SIZE);
+			}
 			x++;
 		}
-		y++;
 	}
 }
 
@@ -133,18 +132,17 @@ void	fill_map(t_data *data)
 	data->mlx = mlx_init(
 			(SIZE * data->map.line_length),
 			(SIZE * data->map.line_count),
-			"Test", true);
+			"Dora la aspiradora", true);
 	if (!data->mlx)
-		error();
+		handle_error(data, UNXERR);
 	load_assets(data);
-	// Display the image
 	printf("about to display lin %d, col %zu\n",
 		data->map.line_count,
 		data->map.line_length);
 	fill_floor(data);
 	fill_outer_walls(data);
 	fill_corners(data);
-	fill_others(data);
 	fill_inner_walls(data);
+	fill_others(data);
 	printf("map filled\n");
 }

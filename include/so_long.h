@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 18:43:04 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 20:00:08 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@
 # define DORA_S_U "assets/textures/robot/robot_stop_up.png"
 # define DORA_S_L "assets/textures/robot/robot_stop_left.png"
 # define DORA_S_R "assets/textures/robot/robot_stop_right.png"
+
+# define CHARGER_READY "assets/textures/robot/charger_ready.png"
+# define CHARGER_WAITING "assets/textures/robot/charger_waiting.png"
 #define SIZE 64
 
 typedef struct s_map
@@ -82,8 +85,6 @@ typedef struct s_map
 typedef struct s_img
 {
 	mlx_image_t	*floor_1;
-	mlx_image_t	*floor_2;
-	mlx_image_t	*floor_3;
 	mlx_image_t	*wall_left;
 	mlx_image_t	*wall_right;
 	mlx_image_t	*wall_up;
@@ -102,13 +103,11 @@ typedef struct s_img
 	mlx_image_t	*dora_s_u;
 	mlx_image_t	*dora_s_l;
 	mlx_image_t	*dora_s_r;
+	mlx_image_t	*charger_r;
+	mlx_image_t	*charger_w;
 	mlx_image_t	*furni_1;
 	mlx_image_t	*table;
 	mlx_image_t	*plan_1;
-	mlx_image_t	*bed;
-	mlx_image_t	*sofa;
-	mlx_image_t	*chair1;
-	mlx_image_t	*chair2;
 	mlx_image_t	*coll;
 }	t_img;
 
