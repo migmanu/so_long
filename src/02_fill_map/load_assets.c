@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 16:43:32 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:43:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,10 @@ void	load_others(t_data *data)
 	data->img.floor_1 = texture_to_image(data, &texture);
 	texture = load_texture(data, DIRT_1);
 	data->img.dirt_1 = texture_to_image(data, &texture);
-	texture = load_texture(data, DIRT_2);
-	data->img.dirt_2 = texture_to_image(data, &texture);
+	texture = load_texture(data, BOOKS);
+	data->img.books = texture_to_image(data, &texture);
+	texture = load_texture(data, CHAIR);
+	data->img.chair = texture_to_image(data, &texture);
 	texture = load_texture(data, FURNI_1);
 	data->img.furni_1 = texture_to_image(data, &texture);
 	texture = load_texture(data, TABLE);

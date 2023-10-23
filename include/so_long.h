@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 16:11:31 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:43:04 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@
 # define CORNER_NE "assets/textures/tiles/wall_corner_ne.png"
 # define CORNER_SW "assets/textures/tiles/wall_corner_sw.png"
 # define CORNER_SE "assets/textures/tiles/wall_corner_se.png"
+# define BOOKS "assets/textures/tiles/books.png"
+# define CHAIR "assets/textures/tiles/chair.png"
 
 # define DIRT_1 "assets/textures/collectables/dirt_1.png"
 # define DIRT_2 "assets/textures/collectables/dirt_2.png"
@@ -92,6 +94,8 @@ typedef struct s_img
 	mlx_image_t	*corner_se;
 	mlx_image_t	*dirt_1;
 	mlx_image_t	*dirt_2;
+	mlx_image_t	*books;
+	mlx_image_t	*chair;
 	mlx_image_t	*poop;
 	mlx_image_t	*dora;
 	mlx_image_t	*dora_s_d;
@@ -116,7 +120,6 @@ typedef struct s_data
 	int		player_pos_x;
 	int		player_pos_y;
 	int		moves;
-	int		cleaned;
 }	t_data;
 
 /****************	00_build_map	****************/
