@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 22:59:41 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 17:27:22 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:50:07 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	move_up(t_data *data)
 {
 	size_t	c;
 
-	printf("move_up init\n");
 	if (data->map.map_v[data->player_pos_y - 1][data->player_pos_x] != '1')
 	{
 		data->player_pos_y -= 1;
@@ -39,7 +38,6 @@ void	move_down(t_data *data)
 {
 	size_t	c;
 
-	printf("move_up init\n");
 	if (data->map.map_v[data->player_pos_y + 1][data->player_pos_x] != '1')
 	{
 		data->player_pos_y += 1;
@@ -67,7 +65,6 @@ void	move_right(t_data *data)
 {
 	size_t	c;
 
-	printf("move_up init\n");
 	if (data->map.map_v[data->player_pos_y][data->player_pos_x + 1] != '1')
 	{
 		data->player_pos_x += 1;
@@ -95,7 +92,6 @@ void	move_left(t_data *data)
 {
 	size_t	c;
 
-	printf("move_up init\n");
 	if (data->map.map_v[data->player_pos_y][data->player_pos_x - 1] != '1')
 	{
 		data->player_pos_x -= 1;
