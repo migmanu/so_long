@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:07:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 11:14:25 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:49:09 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ void	exit_error(char str[])
 void	handle_error(t_data *data, char str[])
 {
 	ft_free_vec(data->map.map_v);
+	if (ft_strncmp(str, "end", 3) == 0)
+	{
+		exit(0);
+		return ;
+	}
 	exit_error(str);
 }

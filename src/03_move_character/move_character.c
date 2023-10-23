@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 17:22:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:47:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_game_status(t_data *data)
 	if (data->map.coll == 0)
 	{
 		printf("end game\n");
-		handle_error(data, "Game end!\n"); // correct end message
+		handle_error(data, "end\n"); // correct end message
 	}
 }
 
