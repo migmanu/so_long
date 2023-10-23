@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 12:05:16 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:11:31 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef struct s_img
 	mlx_image_t	*dirt_1;
 	mlx_image_t	*dirt_2;
 	mlx_image_t	*poop;
+	mlx_image_t	*dora;
 	mlx_image_t	*dora_s_d;
 	mlx_image_t	*dora_s_u;
 	mlx_image_t	*dora_s_l;
@@ -115,6 +116,7 @@ typedef struct s_data
 	int		player_pos_x;
 	int		player_pos_y;
 	int		moves;
+	int		cleaned;
 }	t_data;
 
 /****************	00_build_map	****************/

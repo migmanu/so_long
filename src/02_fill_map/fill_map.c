@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 22:58:02 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:41:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,9 @@ void	fill_outer_walls(t_data *data)
 void	fill_dirt(t_data *data, int x, int y)
 {
 	printf("fill dirt init\n");
-	if ((x + y) % 2 == 0)
-	{
+		data->img.coll = data->img.dirt_1;
 		mlx_image_to_window(data->mlx,
-			data->img.dirt_1, x * SIZE, y * SIZE);
-	}
-	else
-	{
-		mlx_image_to_window(data->mlx,
-			data->img.poop, x * SIZE, y * SIZE);
-	}
+			data->img.coll, x * SIZE, y * SIZE);
 }
 
 void	fill_others(t_data *data)
@@ -110,8 +103,9 @@ void	fill_others(t_data *data)
 			if (data->map.map_v[y][x] == 'P')
 			{
 				printf("player gonna b placed\n");
+				data->img.dora = data->img.dora_s_d;
 				mlx_image_to_window(data->mlx,
-					data->img.dora_1, x * SIZE, y * SIZE);
+					data->img.dora, x * SIZE, y * SIZE);
 				printf("player placed\n");
 				data->player_pos_x = x;
 				data->player_pos_y = y;

@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 11:53:57 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/23 17:22:01 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	print_moves(t_data *data)
 
 void	remove_coll(t_data *data, int x, int y)
 {
+	data->map.map_v[y][x] = '0';
 	mlx_image_to_window(
 		data->mlx,
 		data->img.floor_1,
 		(x * SIZE),
 		(y * SIZE));
-	data->map.map_v[y][x] = '0';
 }
 
 void	check_game_status(t_data *data)
