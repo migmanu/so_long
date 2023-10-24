@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:30:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:19:30 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:29:59 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,6 @@ void	flood_fill(char ***map, int y, int x)
 				flood_fill(map, y - 1, x);
 			}
 		}
-	}
-}
-
-void	print_vec(char **map, int y)
-{
-	int	i;
-
-	i = 0;
-	while (i < y)
-	{
-		i++;
 	}
 }
 
@@ -101,9 +90,7 @@ int	flood_map(t_data data)
 	char	**map_copy;
 
 	map_copy = copy_map(data);
-	print_vec(map_copy, data.map.line_count);
 	flood_fill(&map_copy, data.player_pos_y, data.player_pos_x);
-	print_vec(map_copy, data.map.line_count);
 	if (check_flood(data, map_copy) == -1)
 	{
 		ft_free_vec(map_copy);
