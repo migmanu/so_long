@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:30:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:18:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:19:30 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	print_vec(char **map, int y)
 	i = 0;
 	while (i < y)
 	{
-		printf("%s\n", map[i]);
 		i++;
 	}
 }
@@ -99,14 +98,11 @@ char	**copy_map(t_data data)
 // and the exit are replaced. If not, returns error.
 int	flood_map(t_data data)
 {
-	printf("flood map init\n");
 	char	**map_copy;
 
 	map_copy = copy_map(data);
-	printf("map copy:\n");
 	print_vec(map_copy, data.map.line_count);
 	flood_fill(&map_copy, data.player_pos_y, data.player_pos_x);
-	printf("map flooded:\n");
 	print_vec(map_copy, data.map.line_count);
 	if (check_flood(data, map_copy) == -1)
 	{

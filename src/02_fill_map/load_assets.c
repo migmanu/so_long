@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:10:31 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 20:01:12 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:20:55 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	load_dora(t_data *data)
 	mlx_texture_t	*texture;
 
 	texture = load_texture(data, DORA_S_D);
+	data->img.dora = texture_to_image(data, &texture);
+	texture = load_texture(data, DORA_S_D);
 	data->img.dora_s_d = texture_to_image(data, &texture);
 	texture = load_texture(data, DORA_S_U);
 	data->img.dora_s_u = texture_to_image(data, &texture);
@@ -97,7 +99,6 @@ void	load_dora(t_data *data)
 
 void	load_assets(t_data *data)
 {
-	printf("load assets init\n");
 	load_walls(data);
 	load_dora(data);
 	load_others(data);

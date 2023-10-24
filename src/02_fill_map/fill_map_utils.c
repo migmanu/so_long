@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:01:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 18:49:58 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:20:17 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 // them to the image
 void	chose_inner_wall(t_data *data, int x, int y)
 {
-	printf("fill inner walls init\n");
 	int	r;
 
 	r = x + y * (int)data->map.line_length * data->map.line_count * 11;
 	if (r % 2 == 1)
 	{
 		mlx_image_to_window(data->mlx,
-				data->img.plan_1, (x * SIZE), (y * SIZE));
+			data->img.plan_1, (x * SIZE), (y * SIZE));
 	}
 	else if (r % 3 == 1)
 	{

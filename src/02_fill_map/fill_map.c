@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 22:23:33 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:22:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	fill_floor(t_data *data)
 {
-	printf("fill floor init\n");
 	int	x;
 	int	y;
 
@@ -37,7 +36,6 @@ void	fill_floor(t_data *data)
 
 void	fill_corners(t_data *data)
 {
-	printf("fill corners init\n");
 	mlx_image_to_window(data->mlx, data->img.corner_nw, (0), (0));
 	mlx_image_to_window(data->mlx, data->img.corner_ne,
 		((data->map.line_length - 1) * SIZE), (0));
@@ -50,7 +48,6 @@ void	fill_corners(t_data *data)
 
 void	fill_outer_walls(t_data *data)
 {
-	printf("fill outer walls init\n");
 	int	i;
 
 	i = 1;
@@ -76,7 +73,6 @@ void	fill_outer_walls(t_data *data)
 
 void	fill_dirt(t_data *data, int x, int y)
 {
-	printf("fill dirt init\n");
 	if ((x + y) % 2 == 0)
 	{
 		data->img.coll = data->img.dirt_1;
@@ -95,7 +91,7 @@ void	fill_dora(t_data *data, int x, int y)
 {
 	data->img.dora = data->img.dora_s_d;
 	mlx_image_to_window(data->mlx,
-			data->img.dora, x * SIZE, y * SIZE);
+		data->img.dora, x * SIZE, y * SIZE);
 	data->player_pos_x = x;
 	data->player_pos_y = y;
 }
@@ -117,9 +113,8 @@ void	fill_others(t_data *data)
 				fill_dirt(data, x, y);
 			else if (data->map.map_v[y][x] == 'E')
 			{
-				printf("e found!\n");
 				mlx_image_to_window(data->mlx,
-						data->img.charger_w, x * SIZE, y * SIZE);
+					data->img.charger_w, x * SIZE, y * SIZE);
 			}
 			x++;
 		}
@@ -128,7 +123,6 @@ void	fill_others(t_data *data)
 
 void	fill_map(t_data *data)
 {
-	printf("fill map init\n");
 	data->mlx = mlx_init(
 			(SIZE * data->map.line_length),
 			(SIZE * data->map.line_count),
@@ -136,13 +130,9 @@ void	fill_map(t_data *data)
 	if (!data->mlx)
 		handle_error(data, UNXERR);
 	load_assets(data);
-	printf("about to display lin %d, col %zu\n",
-		data->map.line_count,
-		data->map.line_length);
 	fill_floor(data);
 	fill_outer_walls(data);
 	fill_corners(data);
 	fill_inner_walls(data);
 	fill_others(data);
-	printf("map filled\n");
 }

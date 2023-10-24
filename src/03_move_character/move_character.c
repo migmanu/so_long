@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/23 22:31:34 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:24:31 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ void	check_game_status(t_data *data)
 	if (data->map.coll == 0)
 	{
 		data->img.charger_w->pixels = data->img.charger_r->pixels;
-		//data->img.charger_w->enabled = false;
 	}
-	if (data->map.coll == 0 &&
-			data->map.map_v[data->player_pos_y][data->player_pos_x] == 'E')
+	if (data->map.coll == 0
+		&& data->map.map_v[data->player_pos_y][data->player_pos_x] == 'E')
 		handle_error(data, "end\n");
 }
 

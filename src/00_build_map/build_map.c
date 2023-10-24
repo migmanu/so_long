@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/22 18:37:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:17:06 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 // coordinates will be given (y, x)
 int	get_map_lines_nbr(t_data *data, char *file)
 {
-	printf("get_map_lines_nbr init\n");
 	char	*line;
 	int		fd;
 	int		r;
@@ -28,7 +27,7 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	fd = open(file, O_RDONLY);
 	r = 0;
 	if (fd < 0)
-		exit_error(MAPNOPEN);
+		handle_error(data, MAPNOPEN);
 	else
 	{
 		line = get_next_line(fd);
@@ -38,13 +37,12 @@ int	get_map_lines_nbr(t_data *data, char *file)
 			l = ft_strlen(line) - 1;
 			free(line);
 			if (l != data->map.line_length)
-				exit_error(WRGMAP);
+				handle_error(data, WRGMAP);
 			r++;
 			line = get_next_line(fd);
 		}
 		close(fd);
 	}
-	printf("amount of lines (y axis): %d\n", r);
 	return (r);
 }
 
@@ -57,8 +55,6 @@ void	fill_in_map_v(t_data *data)
 	int		w;
 
 	line = get_next_line(data->map.fd);
-	printf("line len %ld\n", ft_strlen(line));
-	printf("line length in map %ld\n", data->map.line_length);
 	i = 0;
 	while (line != NULL)
 	{
@@ -82,6 +78,8 @@ void	fill_in_map_v(t_data *data)
 
 void	fill_data(t_data *data, char *file)
 {
+	data->mlx = NULL;
+	data->map.map_v = NULL;
 	data->map.line_count = get_map_lines_nbr(data, file);
 	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	data->map.path = file;
@@ -95,14 +93,13 @@ void	fill_data(t_data *data, char *file)
 // the .ber file
 int	build_map(t_data *data, char *file)
 {
-	printf("build map init\n");
 	fill_data(data, file);
 	if (!(data->map.map_v))
 		exit_error(MALLERR);
 	data->map.fd = open(file, O_RDONLY);
 	if (data->map.fd < 0)
 	{
-		exit_error(MAPNOPEN);
+		handle_error(data, MAPNOPEN);
 	}
 	else
 	{
