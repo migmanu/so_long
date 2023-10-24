@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:22:23 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:42:51 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,9 @@ void	fill_others(t_data *data)
 			{
 				mlx_image_to_window(data->mlx,
 					data->img.charger_w, x * SIZE, y * SIZE);
+				mlx_image_to_window(data->mlx,
+					data->img.charger_r, x * SIZE, y * SIZE);
+				data->img.charger_r->enabled = false;
 			}
 			x++;
 		}

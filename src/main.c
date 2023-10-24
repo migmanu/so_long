@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:29:08 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:37:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@ int	main(int argc, char **argv)
 	fill_map(&data);
 	mlx_key_hook(data.mlx, move_hook, &data);
 	mlx_loop(data.mlx);
-	mlx_terminate(data.mlx);
-	ft_free_vec(data.map.map_v);
 	return (0);
 }
