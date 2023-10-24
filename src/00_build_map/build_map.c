@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:17:06 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 19:04:11 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	get_map_lines_nbr(t_data *data, char *file)
 		{
 			l = ft_strlen(line) - 1;
 			free(line);
+			line = NULL;
 			if (l != data->map.line_length)
 				handle_error(data, WRGMAP);
 			r++;
