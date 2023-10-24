@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:27:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:29:08 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	argc = argc * 0;
 	build_map(&data, argv[1]);
 	check_map(&data);
 	if (flood_map(data) == -1)
