@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/25 15:54:03 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/25 15:56:48 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,13 +68,13 @@ $(NAME): $(OBJ_FILES) $(GNL_OBJS) $(LIBFT_PATH) $(MLX42_PATH)
 	@echo $(GREEN) "OK COMPILED"
 
 %.o: %.c
+	@git submodule update --init
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT_PATH):
 	@$(MAKE) -C $(LIBFT_DIR) -s
 
 $(MLX42_PATH):
-	@git submodule update --init
 	@cmake -B $(MLX42_DIR)/build $(MLX42_DIR)
 	@cmake --build $(MLX42_DIR)/build -j4
 
