@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 15:16:27 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:51:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	return (r);
 }
 
-void	check_rec(t_data *data, char *file)
+int	check_rec(t_data *data, char *file)
 {
 	char	*line;
 	int		fd;
@@ -56,15 +56,16 @@ void	check_rec(t_data *data, char *file)
 	l = data->map.line_length;
 	while (line != NULL)
 	{
-		if (ft_strlen(line) != data->map.line_length)
-			l = ft_strlen(line);
+		if ((ft_strlen(line) - 1) != data->map.line_length)
+			l = ft_strlen(line) - 1;
 		free(line);
 		line = NULL;
 		line = get_next_line(fd);
 	}
 	close(fd);
 	if (l != data->map.line_length)
-		handle_error(data, WRGMAP);
+		return (-1);
+	return (0);
 }
 
 // Reads from input file and puts lines into the 
@@ -102,7 +103,6 @@ void	fill_data(t_data *data, char *file)
 	data->mlx = NULL;
 	data->map.map_v = NULL;
 	data->map.line_count = get_map_lines_nbr(data, file);
-	check_rec(data, file);
 	data->map.map_v = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	data->map.path = file;
 	data->map.coll = 0;
@@ -116,6 +116,11 @@ void	fill_data(t_data *data, char *file)
 int	build_map(t_data *data, char *file)
 {
 	fill_data(data, file);
+	if (check_rec(data, file) == -1)
+	{
+		handle_error(data, NOTREC);
+		return (1);
+	}
 	if (!(data->map.map_v))
 		exit_error(MALLERR);
 	data->map.fd = open(file, O_RDONLY);
