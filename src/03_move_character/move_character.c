@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/24 18:42:17 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:20:12 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	print_moves(t_data *data)
 {
-	printf("%d\n", data->moves); // change for my ft_printf
+	char	*moves;
+
+	moves = ft_itoa(data->moves);
+	ft_putendl_fd(moves, 1);
 }
 
 void	remove_coll(t_data *data, int x, int y)
@@ -44,7 +47,11 @@ void	check_game_status(t_data *data)
 void	move_hook(mlx_key_data_t keydata, void *data)
 {
 	if (mlx_is_key_down(((t_data *)data)->mlx, MLX_KEY_ESCAPE))
+	{
 		mlx_close_window(((t_data *)data)->mlx);
+		ft_free_vec(((t_data *)data)->map.map_v);
+		mlx_terminate(((t_data *)data)->mlx);
+	}
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		move_up(data);
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)

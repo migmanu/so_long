@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:33:42 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 15:48:55 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:32:36 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 
 # define CHARGER_READY "assets/textures/robot/charger_ready.png"
 # define CHARGER_WAITING "assets/textures/robot/charger_waiting.png"
-#define SIZE 64
+# define SIZE 64
 
 typedef struct s_map
 {
@@ -124,36 +124,41 @@ typedef struct s_data
 
 /****************	00_build_map	****************/
 // build_map
-int	build_map(t_data *data, char *file);
+int				build_map(t_data *data, char *file);
 
 /****************	01_check_map	****************/
 // map_parse.c
-int	check_map(t_data *data);
+int				check_map(t_data *data);
 // map_flood.c
-int	flood_map(t_data data);
+int				flood_map(t_data data);
 
 /****************	02_fill_map	****************/
 // fill_map.c
-void	fill_map(t_data *data);
+void			fill_map(t_data *data);
 // load_assets.c
-void	load_assets(t_data *data);
+void			load_assets(t_data *data);
+// load_assets_utils.c
+mlx_texture_t	*load_texture(t_data *data, char str[]);
+mlx_image_t		*texture_to_image(t_data *data, mlx_texture_t **texture);
+
 // fill_map_utils.c
-void	fill_inner_walls(t_data *data);
+void			fill_inner_walls(t_data *data);
+void			fill_floor(t_data *data);
+void			fill_corners(t_data *data);
 
 /****************	03_move_character	****************/
 // move_character.c
-void	move_hook(mlx_key_data_t keydata, void *data);
-void	check_game_status(t_data *data);
-void	print_moves(t_data *data);
+void			move_hook(mlx_key_data_t keydata, void *data);
+void			check_game_status(t_data *data);
+void			print_moves(t_data *data);
 // movements.c
-void	move_up(t_data *data);
-void	move_down(t_data *data);
-void	move_left(t_data *data);
-void	move_right(t_data *data);
+void			move_up(t_data *data);
+void			move_down(t_data *data);
+void			move_left(t_data *data);
+void			move_right(t_data *data);
 
 /****************	10_error_handling	****************/
 // handle_error.c
-void	handle_error(t_data *data, char str[]);
-void	exit_error(char str[]);
-
+void			handle_error(t_data *data, char str[]);
+void			exit_error(char str[]);
 #endif

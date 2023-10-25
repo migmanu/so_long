@@ -6,7 +6,7 @@
 #    By: migmanu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:24:44 by migmanu           #+#    #+#              #
-#    Updated: 2023/10/25 15:56:48 by migmanu          ###   ########.fr        #
+#    Updated: 2023/10/25 16:28:26 by jmigoya-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = main.c \
 	   02_fill_map/fill_map.c \
 	   02_fill_map/fill_map_utils.c \
 	   02_fill_map/load_assets.c \
+	   02_fill_map/load_assets_utils.c \
 	   03_move_character/move_character.c \
 	   03_move_character/movements.c \
 
