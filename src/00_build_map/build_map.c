@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 15:51:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:01:34 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,30 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	return (r);
 }
 
-int	check_rec(t_data *data, char *file)
+int	check_rec(char *file)
 {
 	char	*line;
 	int		fd;
-	size_t	l;
+	int		i;
+	int		r;
 
 	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		handle_error(data, MAPNOPEN);
 	line = get_next_line(fd);
-	data->map.line_length = ft_strlen(line) - 1;
-	l = data->map.line_length;
+	i = 0;
+	r = 0;
+	while (line[i] != '\0' && line[i] != '\n')
+		i++;
+	r = i;
 	while (line != NULL)
 	{
-		if ((ft_strlen(line) - 1) != data->map.line_length)
-			l = ft_strlen(line) - 1;
+		i = 0;
+		while (line[i] != '\0' && line[i] != '\n')
+			i++;
 		free(line);
-		line = NULL;
+		if (i != r)
+			return (-1);
 		line = get_next_line(fd);
 	}
-	close(fd);
-	if (l != data->map.line_length)
-		return (-1);
 	return (0);
 }
 
@@ -77,6 +78,7 @@ void	fill_in_map_v(t_data *data)
 	int		w;
 
 	line = get_next_line(data->map.fd);
+	data->map.line_length = ft_strlen(line) - 1;
 	i = 0;
 	while (line != NULL)
 	{
@@ -116,7 +118,7 @@ void	fill_data(t_data *data, char *file)
 int	build_map(t_data *data, char *file)
 {
 	fill_data(data, file);
-	if (check_rec(data, file) == -1)
+	if (check_rec(file) == -1)
 	{
 		handle_error(data, NOTREC);
 		return (1);
