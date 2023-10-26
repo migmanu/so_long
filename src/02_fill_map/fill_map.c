@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:51:51 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 16:22:42 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:25:23 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,6 @@ void	fill_others(t_data *data)
 
 void	fill_map(t_data *data)
 {
-	data->mlx = mlx_init(
-			(SIZE * data->map.line_length),
-			(SIZE * data->map.line_count),
-			"Dora la aspiradora", true);
-	if (!data->mlx)
-		handle_error(data, UNXERR);
 	load_assets(data);
 	fill_floor(data);
 	fill_outer_walls(data);
