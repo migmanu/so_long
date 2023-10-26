@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:07:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/26 15:56:06 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:41:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	handle_error(t_data *data, char str[])
 		mlx_terminate(data->mlx);
 	if (ft_strncmp(str, "end", 3) == 0)
 	{
+		ft_putendl_fd("Game end!", 1);
 		exit(0);
 		return ;
 	}
