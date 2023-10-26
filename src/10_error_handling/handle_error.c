@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:07:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/26 19:33:17 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 19:38:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,19 @@ void	exit_error(char str[])
 		ft_putendl_fd(NOTREC, 1);
 	if (ft_strncmp(str, WRNGEXT, ft_strlen(str)) == 0)
 		ft_putendl_fd(WRNGEXT, 1);
-	//exit(ERROR);
+	exit(ERROR);
 }
 
 void	handle_error(t_data *data, char str[])
 {
-	//ft_free_vec(data->map.map_v);
-	//if (data->mlx != NULL)
-	//	mlx_terminate(data->mlx);
+	ft_free_vec(data->map.map_v);
+	if (data->mlx != NULL)
+		mlx_terminate(data->mlx);
 	if (ft_strncmp(str, "end", 3) == 0)
 	{
 		ft_putendl_fd("Game end!", 1);
-		//exit(0);
-		//return ;
+		exit(0);
+		return ;
 	}
-	else
-	{
-		exit_error(str);
-	}
-	mlx_close_window(data->mlx);
+	exit_error(str);
 }
