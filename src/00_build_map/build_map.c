@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/26 16:05:33 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:28:03 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,8 @@ int	build_map(t_data *data, char *file)
 	char	*ext;
 
 	ext = ft_strrchr(file, 46);
-	if (ext == NULL || ext[0] != '.' || ext[1] != 'b' || ext[2] != 'e'
-		|| ext[3] != 'r' || ext[4] != '\0')
-		handle_error(data, WRNGEXT);
+	if (ext == NULL || ft_strlen(ext) != 4 || ft_strncmp(ext, ".ber", 4) != 0)
+		exit_error(WRNGEXT);
 	fill_data(data, file);
 	if (check_rec(data, file) == -1)
 	{
