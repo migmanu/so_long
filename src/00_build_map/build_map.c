@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:18:06 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 19:01:34 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:05:33 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	get_map_lines_nbr(t_data *data, char *file)
 	return (r);
 }
 
-int	check_rec(char *file)
+int	check_rec(t_data *data, char *file)
 {
 	char	*line;
 	int		fd;
@@ -51,6 +51,8 @@ int	check_rec(char *file)
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
+	if (line == NULL)
+		handle_error(data, WRGMAP);
 	i = 0;
 	r = 0;
 	while (line[i] != '\0' && line[i] != '\n')
@@ -117,8 +119,14 @@ void	fill_data(t_data *data, char *file)
 // the .ber file
 int	build_map(t_data *data, char *file)
 {
+	char	*ext;
+
+	ext = ft_strrchr(file, 46);
+	if (ext == NULL || ext[0] != '.' || ext[1] != 'b' || ext[2] != 'e'
+		|| ext[3] != 'r' || ext[4] != '\0')
+		handle_error(data, WRNGEXT);
 	fill_data(data, file);
-	if (check_rec(file) == -1)
+	if (check_rec(data, file) == -1)
 	{
 		handle_error(data, NOTREC);
 		return (1);
