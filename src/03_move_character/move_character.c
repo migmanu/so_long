@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/25 19:32:30 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:35:37 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	print_moves(t_data *data)
 
 	moves = ft_itoa(data->moves);
 	ft_putendl_fd(moves, 1);
+	free(moves);
 }
 
 void	remove_coll(t_data *data, int x, int y)
