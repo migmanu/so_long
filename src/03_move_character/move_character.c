@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:33:11 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/26 16:35:37 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:39:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	move_hook(mlx_key_data_t keydata, void *data)
 	if (mlx_is_key_down(((t_data *)data)->mlx, MLX_KEY_ESCAPE))
 	{
 		mlx_close_window(((t_data *)data)->mlx);
+		handle_error(data, "end");
 	}
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		move_up(data);
