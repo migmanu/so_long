@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:55 by migmanu           #+#    #+#             */
-/*   Updated: 2023/10/26 19:28:13 by migmanu          ###   ########.fr       */
+/*   Updated: 2024/02/16 18:27:47 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	if (argc != 2)
+		return (FAILURE);
 	argc = argc * 0;
 	build_map(&data, argv[1]);
 	check_map(&data);
@@ -34,5 +36,5 @@ int	main(int argc, char **argv)
 	mlx_loop(data.mlx);
 	ft_free_vec(data.map.map_v);
 	mlx_terminate(data.mlx);
-	return (0);
+	return (SUCCESS);
 }
